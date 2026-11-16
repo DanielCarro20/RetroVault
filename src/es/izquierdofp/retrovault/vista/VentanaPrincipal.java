@@ -4,6 +4,9 @@
  */
 package es.izquierdofp.retrovault.vista;
 
+import es.izquierdofp.retrovault.datos.JuegoDAO;
+import es.izquierdofp.retrovault.modelo.Juego;
+
 /**
  *
  * @author dan38
@@ -15,8 +18,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form VentanaPrincipal
      */
+       private final JuegoDAO dao = new JuegoDAO();
+    private JuegosTableModel modeloTabla;
+
     public VentanaPrincipal() {
         initComponents();
+        configurarTabla();
+        configurarPopup();
+        cargarDatos();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -149,8 +159,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         mnJuegos.add(mniEditar);
         mnJuegos.add(jSeparator1);
 
-        mniEliminar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_DELETE, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        mniEliminar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_DELETE, 0));
         mniEliminar.setLabel("Eliminar juego");
+        mniEliminar.addActionListener(this::mniEliminarActionPerformed);
         mnJuegos.add(mniEliminar);
 
         jMenuBar1.add(mnJuegos);
@@ -184,6 +195,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void popAnyadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popAnyadirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_popAnyadirActionPerformed
+
+    private void mniEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mniEliminarActionPerformed
 
     /**
      * @param args the command line arguments
