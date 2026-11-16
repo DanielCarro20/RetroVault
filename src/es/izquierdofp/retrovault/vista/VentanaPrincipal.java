@@ -28,6 +28,78 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         cargarDatos();
         setLocationRelativeTo(null);
     }
+        private void configurarTabla() {
+        modeloTabla = new JuegosTableModel(new java.util.ArrayList<>());
+        tablaJuegos.setModel(modeloTabla);
+
+        ConsolaColorRenderer renderer = new ConsolaColorRenderer();
+        for (int i = 0; i < tablaJuegos.getColumnCount(); i++) {
+            tablaJuegos.getColumnModel().getColumn(i).setCellRenderer(renderer);
+        }
+
+        tablaJuegos.getColumnModel().getColumn(0).setPreferredWidth(35);
+        tablaJuegos.getColumnModel().getColumn(1).setPreferredWidth(200);
+        tablaJuegos.getColumnModel().getColumn(2).setPreferredWidth(110);
+        tablaJuegos.getColumnModel().getColumn(3).setPreferredWidth(100);
+        tablaJuegos.getColumnModel().getColumn(4).setPreferredWidth(50);
+        tablaJuegos.getColumnModel().getColumn(5).setPreferredWidth(110);
+        tablaJuegos.getColumnModel().getColumn(6).setPreferredWidth(100);
+
+        tablaJuegos.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent e) {
+                if (e.getClickCount() == 2) editarSeleccionado();
+            }
+        });
+    }
+
+    private void configurarPopup() {
+        tablaJuegos.setComponentPopupMenu(popupTabla);
+        tablaJuegos.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mousePressed(java.awt.event.MouseEvent e) {
+                int fila = tablaJuegos.rowAtPoint(e.getPoint());
+                if (fila >= 0) tablaJuegos.setRowSelectionInterval(fila, fila);
+            }
+        });
+    }
+
+    private void cargarDatos() {
+        modeloTabla.setJuegos(dao.obtenerTodos());
+        actualizarEstadisticas();
+    }
+
+    private void actualizarEstadisticas() {
+        int    total = dao.contarTotal();
+        int    comp  = dao.contarCompletados();
+        double med   = dao.puntuacionMedia();
+        lblTotal.setText      (" Total: " + total);
+        lblCompletados.setText(" | Completados: " + comp);
+        lblMedia.setText      (" | Media: " +
+            (total == 0 ? "–" : String.format("%.1f ★", med)));
+    }
+
+    private void editarSeleccionado() {
+        int fila = tablaJuegos.getSelectedRow();
+        if (fila < 0) return;
+        Juego j = modeloTabla.getJuego(fila);
+        DialogoJuego dlg = new DialogoJuego(this, j);
+        dlg.setVisible(true);
+        if (dlg.isGuardado()) { dao.actualizar(dlg.getJuego()); cargarDatos(); }
+    }
+
+    private void eliminarSeleccionado() {
+        int fila = tablaJuegos.getSelectedRow();
+        if (fila < 0) return;
+        Juego j = modeloTabla.getJuego(fila);
+        int r = javax.swing.JOptionPane.showConfirmDialog(this,
+            "¿Eliminar \"" + j.getTitulo() + "\" de tu biblioteca?",
+            "Confirmar eliminación", javax.swing.JOptionPane.YES_NO_OPTION,
+            javax.swing.JOptionPane.WARNING_MESSAGE);
+        if (r == javax.swing.JOptionPane.YES_OPTION) {
+            dao.eliminar(j.getId()); cargarDatos();
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
