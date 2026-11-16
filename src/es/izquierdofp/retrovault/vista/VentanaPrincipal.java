@@ -28,6 +28,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        popupTabla = new javax.swing.JPopupMenu();
+        popAnyadir = new javax.swing.JMenuItem();
+        popEditar = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        popEliminar = new javax.swing.JMenuItem();
         panelFiltros = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         cmbConsola = new javax.swing.JComboBox<>();
@@ -52,6 +57,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         mniEliminar = new javax.swing.JMenuItem();
         mnVista = new javax.swing.JMenu();
         mniActualizar = new javax.swing.JMenuItem();
+
+        popAnyadir.setLabel("Añadir juego…");
+        popAnyadir.addActionListener(this::popAnyadirActionPerformed);
+        popupTabla.add(popAnyadir);
+
+        popEditar.setLabel("Editar juego…");
+        popupTabla.add(popEditar);
+        popupTabla.add(jSeparator2);
+
+        popEliminar.setLabel("Eliminar juego");
+        popupTabla.add(popEliminar);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("RetroVault — Biblioteca de Videojuegos Retro");
@@ -165,6 +181,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_mniActualizarActionPerformed
 
+    private void popAnyadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popAnyadirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_popAnyadirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -202,6 +222,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JLabel lblCompletados;
     private javax.swing.JLabel lblMedia;
     private javax.swing.JLabel lblTotal;
@@ -214,6 +235,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem mniSalir;
     private javax.swing.JPanel panelEstadisticas;
     private javax.swing.JPanel panelFiltros;
+    private javax.swing.JMenuItem popAnyadir;
+    private javax.swing.JMenuItem popEditar;
+    private javax.swing.JMenuItem popEliminar;
+    private javax.swing.JPopupMenu popupTabla;
     private javax.swing.JTable tablaJuegos;
     // End of variables declaration//GEN-END:variables
 }
