@@ -35,7 +35,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         cmbEstado = new javax.swing.JComboBox<>();
         btnFiltrar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
-        btnAñadir = new javax.swing.JButton();
+        btnAnyadir = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaJuegos = new javax.swing.JTable();
+        panelEstadisticas = new javax.swing.JPanel();
+        lblTotal = new javax.swing.JLabel();
+        lblCompletados = new javax.swing.JLabel();
+        lblMedia = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("RetroVault — Biblioteca de Videojuegos Retro");
@@ -46,13 +52,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabel1.setText("Consola:");
         panelFiltros.add(jLabel1);
 
-        cmbConsola.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbConsola.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todas", "NES", "SNES", "Mega Drive", "Game Boy", "PlayStation", "Nintendo 64", "Game Gear", "Arcade" }));
         panelFiltros.add(cmbConsola);
 
         jLabel2.setText("Estado:");
         panelFiltros.add(jLabel2);
 
-        cmbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Pendiente", "Jugando", "Completado", "Abandonado" }));
         panelFiltros.add(cmbEstado);
 
         btnFiltrar.setText("Filtrar");
@@ -61,10 +67,41 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnLimpiar.setText("Limpiar");
         panelFiltros.add(btnLimpiar);
 
-        btnAñadir.setText("+ Añadir");
-        panelFiltros.add(btnAñadir);
+        btnAnyadir.setText("+ Añadir");
+        panelFiltros.add(btnAnyadir);
 
         getContentPane().add(panelFiltros, java.awt.BorderLayout.NORTH);
+
+        tablaJuegos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tablaJuegos.setGridColor(new java.awt.Color(60, 60, 60));
+        tablaJuegos.setRowHeight(26);
+        tablaJuegos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(tablaJuegos);
+
+        getContentPane().add(jScrollPane1, java.awt.BorderLayout.CENTER);
+
+        panelEstadisticas.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        lblTotal.setText("Total: 0");
+        panelEstadisticas.add(lblTotal);
+
+        lblCompletados.setText("| Completados: 0");
+        panelEstadisticas.add(lblCompletados);
+
+        lblMedia.setText("| Puntuación media: –");
+        panelEstadisticas.add(lblMedia);
+
+        getContentPane().add(panelEstadisticas, java.awt.BorderLayout.SOUTH);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -95,13 +132,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAñadir;
+    private javax.swing.JButton btnAnyadir;
     private javax.swing.JButton btnFiltrar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JComboBox<String> cmbConsola;
     private javax.swing.JComboBox<String> cmbEstado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCompletados;
+    private javax.swing.JLabel lblMedia;
+    private javax.swing.JLabel lblTotal;
+    private javax.swing.JPanel panelEstadisticas;
     private javax.swing.JPanel panelFiltros;
+    private javax.swing.JTable tablaJuegos;
     // End of variables declaration//GEN-END:variables
 }
