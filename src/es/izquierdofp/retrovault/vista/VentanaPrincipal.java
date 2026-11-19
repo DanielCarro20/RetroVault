@@ -174,6 +174,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         panelFiltros.add(btnFiltrar);
 
         btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(this::btnLimpiarActionPerformed);
         panelFiltros.add(btnLimpiar);
 
         btnAnyadir.setText("+ Añadir");
@@ -282,6 +283,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         else                           lista = dao.obtenerTodos();
         modeloTabla.setJuegos(lista);
     }//GEN-LAST:event_btnFiltrarActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        cmbConsola.setSelectedIndex(0);
+        cmbEstado.setSelectedIndex(0);
+        cargarDatos();
+    }//GEN-LAST:event_btnLimpiarActionPerformed
 
     /**
      * @param args the command line arguments
