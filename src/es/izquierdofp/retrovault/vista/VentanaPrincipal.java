@@ -256,23 +256,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mniAnyadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAnyadirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mniAnyadirActionPerformed
+btnAnyadirActionPerformed(evt);    }//GEN-LAST:event_mniAnyadirActionPerformed
 
     private void mniEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniEditarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mniEditarActionPerformed
+editarSeleccionado();    }//GEN-LAST:event_mniEditarActionPerformed
 
     private void mniActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniActualizarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mniActualizarActionPerformed
+cargarDatos();    }//GEN-LAST:event_mniActualizarActionPerformed
 
     private void popAnyadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popAnyadirActionPerformed
-        // TODO add your handling code here:
+btnAnyadirActionPerformed(evt);
     }//GEN-LAST:event_popAnyadirActionPerformed
 
     private void mniEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniEliminarActionPerformed
-        // TODO add your handling code here:
+eliminarSeleccionado();
     }//GEN-LAST:event_mniEliminarActionPerformed
 
     private void btnFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiltrarActionPerformed
