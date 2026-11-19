@@ -217,6 +217,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenu1.setText("Archivo");
 
         mniSalir.setText("Salir");
+        mniSalir.addActionListener(this::mniSalirActionPerformed);
         jMenu1.add(mniSalir);
 
         jMenuBar1.add(jMenu1);
@@ -293,6 +294,9 @@ eliminarSeleccionado();
         dlg.setVisible(true);
         if (dlg.isGuardado()) { dao.insertar(dlg.getJuego()); cargarDatos(); }
     }//GEN-LAST:event_btnAnyadirActionPerformed
+
+    private void mniSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniSalirActionPerformed
+        System.exit(0);    }//GEN-LAST:event_mniSalirActionPerformed
 
     /**
      * @param args the command line arguments
