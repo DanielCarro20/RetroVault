@@ -178,6 +178,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         panelFiltros.add(btnLimpiar);
 
         btnAnyadir.setText("+ Añadir");
+        btnAnyadir.addActionListener(this::btnAnyadirActionPerformed);
         panelFiltros.add(btnAnyadir);
 
         getContentPane().add(panelFiltros, java.awt.BorderLayout.NORTH);
@@ -289,6 +290,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         cmbEstado.setSelectedIndex(0);
         cargarDatos();
     }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnAnyadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnyadirActionPerformed
+        DialogoJuego dlg = new DialogoJuego(this, null);
+        dlg.setVisible(true);
+        if (dlg.isGuardado()) { dao.insertar(dlg.getJuego()); cargarDatos(); }
+    }//GEN-LAST:event_btnAnyadirActionPerformed
 
     /**
      * @param args the command line arguments
