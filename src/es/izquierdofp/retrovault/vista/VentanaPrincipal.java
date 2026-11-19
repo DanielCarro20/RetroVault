@@ -170,6 +170,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         panelFiltros.add(cmbEstado);
 
         btnFiltrar.setText("Filtrar");
+        btnFiltrar.addActionListener(this::btnFiltrarActionPerformed);
         panelFiltros.add(btnFiltrar);
 
         btnLimpiar.setText("Limpiar");
@@ -271,6 +272,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void mniEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniEliminarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mniEliminarActionPerformed
+
+    private void btnFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiltrarActionPerformed
+                String cons = (String) cmbConsola.getSelectedItem();
+        String est  = (String) cmbEstado.getSelectedItem();
+        java.util.List<Juego> lista;
+        if (!"Todas".equals(cons))     lista = dao.obtenerPorConsola(cons);
+        else if (!"Todos".equals(est)) lista = dao.obtenerPorEstado(est);
+        else                           lista = dao.obtenerTodos();
+        modeloTabla.setJuegos(lista);
+    }//GEN-LAST:event_btnFiltrarActionPerformed
 
     /**
      * @param args the command line arguments
