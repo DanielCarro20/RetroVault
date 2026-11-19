@@ -145,6 +145,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         popupTabla.add(popAnyadir);
 
         popEditar.setLabel("Editar juego…");
+        popEditar.addActionListener(this::popEditarActionPerformed);
         popupTabla.add(popEditar);
         popupTabla.add(jSeparator2);
 
@@ -297,6 +298,9 @@ eliminarSeleccionado();
 
     private void mniSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniSalirActionPerformed
         System.exit(0);    }//GEN-LAST:event_mniSalirActionPerformed
+
+    private void popEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popEditarActionPerformed
+        editarSeleccionado();    }//GEN-LAST:event_popEditarActionPerformed
 
     /**
      * @param args the command line arguments
