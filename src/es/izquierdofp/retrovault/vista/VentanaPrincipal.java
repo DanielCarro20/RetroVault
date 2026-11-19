@@ -150,6 +150,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         popupTabla.add(jSeparator2);
 
         popEliminar.setLabel("Eliminar juego");
+        popEliminar.addActionListener(this::popEliminarActionPerformed);
         popupTabla.add(popEliminar);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -301,6 +302,9 @@ eliminarSeleccionado();
 
     private void popEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popEditarActionPerformed
         editarSeleccionado();    }//GEN-LAST:event_popEditarActionPerformed
+
+    private void popEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popEliminarActionPerformed
+        eliminarSeleccionado();    }//GEN-LAST:event_popEliminarActionPerformed
 
     /**
      * @param args the command line arguments
